@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Todo_Liste {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Wieviel Aufgaben möchten Sie erfassen?");
+        int tasknumber = sc.nextInt();
+        String[] tasks;
+        tasks = new String[tasknumber];
+        String todos = "";
+        String eingabe;
+
+        for (int i = 0; tasknumber > i; i++){
+            System.out.println("Aufgabe " + (i+1) + "/" + tasknumber + " hinzufügen (oder 'exit' zum Beenden" );
+            eingabe = sc.next();
+            if (eingabe.equalsIgnoreCase("exit")) {
+                todos = todos.substring(0, todos.length()-2);
+                break;
+            }else {
+                tasks[i] = eingabe;
+                if (tasknumber == i + 1) {
+                    todos += tasks[i];
+                } else {
+                    todos += tasks[i] + ", ";
+                }
+            }
+        }
+        System.out.println("Meine Todos: \n [" + todos + "]");
+    }
+}
